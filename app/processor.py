@@ -2,10 +2,10 @@ from datetime import datetime
 from typing import List
 from uuid import uuid4
 
-from src.extractor import BlogExtractor
-from src.generator import AIGenerator
-from src.message_parser import MessageParser
-from src.models import (
+from app.extractor import BlogExtractor
+from app.generator import AIGenerator
+from app.message_parser import MessageParser
+from app.models import (
     Artifact,
     JSONRPCRequest,
     JSONRPCResponse,

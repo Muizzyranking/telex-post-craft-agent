@@ -7,6 +7,10 @@ services:
       - "8000:8000"
     env_file:
       - .env
+    environment:
+      # Override any environment variables here if needed
+      - PORT=8000
+      - AGENT_URL=http://localhost:8000
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/health"]

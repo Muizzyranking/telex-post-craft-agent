@@ -1,7 +1,7 @@
 import re
 from typing import List, Optional
 
-from src.models import Message
+from app.models import Message
 
 
 class MessageParser:

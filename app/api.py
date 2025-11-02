@@ -1,11 +1,11 @@
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 
-from src.config import settings
-from src.models import (
+from app.config import settings
+from app.models import (
     JSONRPCRequest,
 )
-from src.processor import PostProcessor
+from app.processor import PostProcessor
 
 
 app = FastAPI(title="POST CRAFT AGENT")

@@ -2,8 +2,8 @@ from typing import List, Optional
 
 from google.genai import Client, types
 
-from src.config import settings
-from src.models import BlogContent, SocialPost
+from app.config import settings
+from app.models import BlogContent, SocialPost
 
 
 class AIGenerator:

@@ -1,4 +1,4 @@
-from src.config import settings
+from app import settings
 
 settings.validate()
 
@@ -12,4 +12,4 @@ if __name__ == "__main__":
     print(f"🎯 Default platforms: {', '.join(settings.DEFAULT_PLATFORMS)}")
     print("=" * 60)
 
-    uvicorn.run("src.api:app", host="0.0.0.0", port=settings.PORT, reload=True)
+    uvicorn.run("app.api:app", host="0.0.0.0", port=settings.PORT, reload=True)

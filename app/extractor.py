@@ -2,7 +2,7 @@ import re
 import httpx
 from bs4 import BeautifulSoup
 
-from src.models import BlogContent
+from app.models import BlogContent
 
 
 class BlogExtractor:
