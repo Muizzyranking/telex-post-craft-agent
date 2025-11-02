@@ -69,6 +69,53 @@ You need at least one AI API key:
 - **Google Gemini** (recommended): Get your API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
 - **Groq** (fallback): Get your API key from [Groq Console](https://console.groq.com/)
 
+## Docker Deployment
+
+### Quick Start with Docker
+
+1. **Build the Docker image**
+   ```bash
+   docker build -t postcraft-agent .
+   ```
+
+2. **Run the container**
+   ```bash
+   docker run -p 8000:8000 --env-file .env postcraft-agent
+   ```
+
+3. **Or use Docker Compose**
+   ```bash
+   docker-compose up -d
+   ```
+
+### Docker Compose (Recommended)
+
+Create a `docker-compose.yml` file:
+
+```yaml
+version: '3.8'
+
+services:
+  postcraft-agent:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+```
+
+Then run:
+```bash
+docker-compose up -d
+```
+
 ## Usage
 
 ### API Endpoints
