@@ -102,6 +102,10 @@ services:
       - "8000:8000"
     env_file:
       - .env
+    environment:
+      # Override any environment variables here if needed
+      - PORT=8000
+      - AGENT_URL=http://localhost:8000
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
@@ -109,12 +113,40 @@ services:
       timeout: 10s
       retries: 3
       start_period: 40s
+    container_name: postcraft-agent
 ```
 
 Then run:
 ```bash
 docker-compose up -d
 ```
+
+### Environment Variables in Docker
+
+The Docker setup properly handles environment variables in multiple ways:
+
+1. **Via .env file** (recommended):
+   ```bash
+   # Create .env file with your variables
+   GEMINI_API_KEY=your_key_here
+   GROQ_API_KEY=your_key_here
+   PORT=8000
+   ```
+
+2. **Via docker-compose.yml**:
+   ```yaml
+   environment:
+     - GEMINI_API_KEY=your_key_here
+     - PORT=8000
+   ```
+
+3. **Via docker run command**:
+   ```bash
+   docker run -p 8000:8000 \
+     -e GEMINI_API_KEY=your_key_here \
+     -e PORT=8000 \
+     postcraft-agent
+   ```
 
 ## Usage
 

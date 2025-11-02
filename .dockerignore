@@ -70,3 +70,4 @@ check.txt
 # Docker
 Dockerfile
 .dockerignore
+docker-compose.yml
